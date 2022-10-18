@@ -14,12 +14,50 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    full_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    role: DataTypes.INTEGER,
-    balance: DataTypes.INTEGER
+    full_name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+        isEmail: true,
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+        len: [6, 10],
+      }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+        isIn: [['male', 'female']],
+      }
+    },
+    role: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        max: 2,
+        min: 1
+      }
+    },
+    balance: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+        max: 100000000,
+        min: 0,
+      }
+    }
   }, {
     sequelize,
     modelName: 'User',
