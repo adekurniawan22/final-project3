@@ -118,6 +118,26 @@ class UserController {
             return res.status(500).json({ error: error.message });
         }
     }
+
+    static async topup(req, res) {
+        try {
+            const authentication = res.authentication;
+            const balance = req.body.balance;
+            if (balance) {
+                await User.update({ balance }, { where: { id: authentication.id } });
+                return res.status(200).json({ message: `Your balance has been successfully updated to Rp. ${balance}` });
+            } else {
+                return res.status(200).json({ message: 'Wrong request body' });
+            }
+        } catch (error) {
+            const errObj = {};
+            error.errors.map(error => {
+                errObj[error.path] = error.message;
+            })
+            return res.status(500).json(errObj);
+        }
+
+    }
 }
 
 module.exports = UserController;

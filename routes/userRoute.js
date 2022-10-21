@@ -9,5 +9,6 @@ router.post('/login', UserController.login);
 router.use(authentication);
 router.put('/:id', authorizationUser, UserController.editUser);
 router.delete('/:id', authorizationUser, UserController.deleteUser);
+router.patch('/topup', UserController.topup)
 
 module.exports = router;
