@@ -14,10 +14,35 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    title: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
-    CategoryId: DataTypes.INTEGER
+    title: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+        min: 0,
+        max: 50000000
+      }
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+        min: 5
+      }
+    },
+    CategoryId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+      }
+    }
   }, {
     sequelize,
     modelName: 'Product',
