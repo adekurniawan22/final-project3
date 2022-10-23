@@ -6,7 +6,7 @@ const authorizationRole = require('../middleware/authorizationRole');
 
 router.use(authentication);
 router.post('/categories', authorizationRole, CategoriesController.createCategories);
-router.get('/categories', CategoriesController.getCategories);
+router.get('/categories', authorizationRole, CategoriesController.getCategories);
 router.patch('/categories/:categoryId', authorizationRole, CategoriesController.editCategories)
 router.delete('/categories/:categoryId', authorizationRole, CategoriesController.deleteCategories)
 

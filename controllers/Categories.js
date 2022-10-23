@@ -1,5 +1,4 @@
 const { Category } = require('../models/');
-// const { Product } = require('../models/');
 
 class CategoriesController {
     static async createCategories(req, res) {
@@ -8,7 +7,6 @@ class CategoriesController {
             const dataCategories = await Category.create({
                 type: type,
             })
-
             return res.status(201).json({ category: dataCategories })
         } catch (error) {
             return res.status(500).json(error)
@@ -35,15 +33,7 @@ class CategoriesController {
             if (dataUpdate) {
                 const category = await Category.findOne({ where: { id: categoryId } });
                 if (category) {
-                    return res.status(200).json({
-                        category: {
-                            id: category.dataValues.id,
-                            type: category.dataValues.type,
-                            sold_product_amount: category.dataValues.sold_product_amount,
-                            createdAt: category.dataValues.createdAt,
-                            updatedAt: category.dataValues.updatedAt
-                        }
-                    });
+                    return res.status(200).json({ category });
                 } else {
                     return res.status(500).json({ message: 'This category id not found' })
                 }
