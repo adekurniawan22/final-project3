@@ -5,13 +5,12 @@ class CategoriesController {
         try {
             const { type } = req.body;
             await Category.create({
-                id: 15,
+                id: res.authentication.id,
                 type: type,
             })
 
             return res.status(201).json({ message: 'OK' })
         } catch (error) {
-            console.log(error);
             return res.status(500).json(error)
         }
     }

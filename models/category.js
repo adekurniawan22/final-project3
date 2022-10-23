@@ -14,8 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Category.init({
-    type: DataTypes.STRING,
-    sold_product_amount: DataTypes.INTEGER
+    type: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      }
+    },
+    sold_product_amount: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+      }
+    }
   }, {
     sequelize,
     modelName: 'Category',

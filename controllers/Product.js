@@ -26,12 +26,11 @@ class ProductController {
             }
 
         } catch (error) {
-            // const errObj = {};
-            // error.errors.map(error => {
-            //     errObj[error.path] = error.message;
-            // })
-            // return res.status(500).json(errObj);
-            console.log(error)
+            const errObj = {};
+            error.errors.map(error => {
+                errObj[error.path] = error.message;
+            })
+            return res.status(500).json(errObj);
         }
     }
 }

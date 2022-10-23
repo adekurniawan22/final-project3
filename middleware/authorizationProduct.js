@@ -1,8 +1,8 @@
-async function authorizationUser(req, res, next) {
+
+async function authorizationProduct(req, res, next) {
     try {
-        const id = req.params.id;
         const authentication = res.authentication
-        if (authentication.id == id) {
+        if (authentication.role == 1) {
             next();
         } else {
             return res.status(403).json({ message: 'Forbidden' })
@@ -12,4 +12,4 @@ async function authorizationUser(req, res, next) {
     }
 }
 
-module.exports = authorizationUser
+module.exports = authorizationProduct

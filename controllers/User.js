@@ -85,7 +85,7 @@ class UserController {
             const dataUpdate = await User.update({ full_name, email }, { where: { id: authentication.id } });
             if (dataUpdate) {
                 const user = await User.findOne({ where: { id: authentication.id } });
-                return res.status(201).json({
+                return res.status(200).json({
                     user: {
                         id: user.dataValues.id,
                         full_name: user.dataValues.full_name,
@@ -96,7 +96,6 @@ class UserController {
                 });
             }
         } catch (error) {
-            console.log(error);
             const errObj = {};
             error.errors.map(error => {
                 errObj[error.path] = error.message;
@@ -108,11 +107,9 @@ class UserController {
     static async deleteUser(req, res) {
         try {
             const authentication = res.authentication
-            const { full_name, email } = req.body;
-
             const dataDelete = await User.destroy({ where: { id: authentication.id } });
             if (dataDelete) {
-                return res.status(201).json({ message: 'Your account has been succesfully deleted' });
+                return res.status(200).json({ message: 'Your account has been succesfully deleted' });
             }
         } catch (error) {
             return res.status(500).json({ error: error.message });
@@ -127,7 +124,7 @@ class UserController {
                 await User.update({ balance }, { where: { id: authentication.id } });
                 return res.status(200).json({ message: `Your balance has been successfully updated to Rp. ${balance}` });
             } else {
-                return res.status(200).json({ message: 'Wrong request body' });
+                return res.status(500).json({ message: 'Wrong request body' });
             }
         } catch (error) {
             const errObj = {};
