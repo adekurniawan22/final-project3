@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Category, { as: 'Category' });
+      this.hasMany(models.TransactionHistory, { as: 'TransactionHistory_Product' });
+
     }
   }
   Product.init({
