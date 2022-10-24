@@ -47,11 +47,11 @@ class CategoriesController {
         try {
             const categoryId = req.params.categoryId;
             const dataDelete = await Category.destroy({ where: { id: categoryId } });
-            console.log(dataDelete);
+
             if (dataDelete) {
                 return res.status(200).json({ message: 'Category has been succesfully deleted' })
             } else {
-                return res.status(200).json({ message: 'This category id not found' })
+                return res.status(500).json({ message: 'This category id not found' })
             }
         } catch (error) {
             return res.status(500).json(error)

@@ -1,5 +1,5 @@
 
-async function authorizationProduct(req, res, next) {
+async function authorizationRoleAdmin(req, res, next) {
     try {
         const authentication = res.authentication
         if (authentication.role == 1) {
@@ -12,4 +12,4 @@ async function authorizationProduct(req, res, next) {
     }
 }
 
-module.exports = authorizationProduct
+module.exports = authorizationRoleAdmin

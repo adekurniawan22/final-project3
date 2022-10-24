@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const CategoriesController = require('../controllers/Categories');
 const authentication = require('../middleware/authentication');
-const authorizationRole = require('../middleware/authorizationRole');
+const authorizationRoleAdmin = require('../middleware/authorizationRoleAdmin');
 
 router.use(authentication);
-router.post('/categories', authorizationRole, CategoriesController.createCategories);
-router.get('/categories', authorizationRole, CategoriesController.getCategories);
-router.patch('/categories/:categoryId', authorizationRole, CategoriesController.editCategories)
-router.delete('/categories/:categoryId', authorizationRole, CategoriesController.deleteCategories)
+router.post('/categories', authorizationRoleAdmin, CategoriesController.createCategories);
+router.get('/categories', authorizationRoleAdmin, CategoriesController.getCategories);
+router.patch('/categories/:categoryId', authorizationRoleAdmin, CategoriesController.editCategories)
+router.delete('/categories/:categoryId', authorizationRoleAdmin, CategoriesController.deleteCategories)
 
 module.exports = router;

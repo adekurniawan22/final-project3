@@ -12,4 +12,5 @@ app.use('/users', userRouter);
 app.use(categoryRoute);
 app.use(productRouter);
 app.use(transactionRoutes);
-app.listen(PORT, () => { console.log(`Server running in : http://localhost:${PORT}`) });
+
+app.listen(PORT, () => { console.log(`Server running on PORT ${PORT}`) });

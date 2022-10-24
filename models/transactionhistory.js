@@ -10,13 +10,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // this.belongsTo(models.User, { as: 'User_TransactionHistory' });
-      // this.belongsTo(models.Product, { as: 'Product_TransactionHistory' });
+      this.belongsTo(models.User, { through: 'UserId' });
+      this.belongsTo(models.Product, { through: 'ProductId' });
     }
   }
   TransactionHistory.init({
-    ProductId: DataTypes.INTEGER,
-    UserId: DataTypes.INTEGER,
+    ProductId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+      }
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: true,
+        isNumeric: true,
+      }
+    },
     quantity: {
       type: DataTypes.INTEGER,
       validate: {
