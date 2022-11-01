@@ -2,7 +2,7 @@
 async function authorizationRoleAdmin(req, res, next) {
     try {
         const authentication = res.authentication
-        if (authentication.role == 1) {
+        if (authentication.role == 0) {
             next();
         } else {
             return res.status(403).json({ message: 'Forbidden' })
