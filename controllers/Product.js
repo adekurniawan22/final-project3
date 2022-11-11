@@ -5,7 +5,12 @@ class ProductController {
     static async getAllProduct(req, res) {
         try {
             const dataProduct = await Product.findAll();
-            return res.status(200).json({ products: dataProduct })
+
+            let newResult = dataProduct.map(data => {
+                data.price = "Rp " + data.price
+                return data;
+            })
+            return res.status(200).json({ products: newResult });
         } catch (error) {
             return res.status(500).json(error);
         }
