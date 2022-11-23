@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PGPORT || 5000;
 const userRouter = require('./routes/userRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const productRouter = require('./routes/productRoute')
