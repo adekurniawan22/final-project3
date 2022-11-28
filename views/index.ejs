@@ -2,66 +2,217 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <title>Final Project 3</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Final Project 3 API</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contributing</a>
-                    </li>
-                </ul>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Final Project 3 API</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Documentation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                <div class="sticky-top">
+                    <div class="list-group">
+                        <a href="#users" class="list-group-item list-group-item-action">Users</a>
+                        <a href="#categories" class="list-group-item list-group-item-action">Categories</a>
+                        <a href="#products" class="list-group-item list-group-item-action">Products</a>
+                        <a href="#transactions" class="list-group-item list-group-item-action">Transactions</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <!-- Users -->
+                <div class="card " id="users">
+                    <h5 class="card-header text-white bg-primary">Users</h5>
+                    <ul class="ms-4">
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">POST /users/register</h5>
+                                <img src="/img/users/register.png" class="img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">POST /users/login</h5>
+                                <img src="/img/users/login.png" class="img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">PUT /users/:userId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/users/edit-user.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">PATCH /users/topup</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/users/topup.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">DELETE /users/:userId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/users/delete-user.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+
+                <!-- Categories -->
+                <div class="card mt-4 " id="categories">
+                    <h5 class="card-header text-white bg-primary">Categories</h5>
+                    <ul class="ms-4">
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">POST /categories (only admin)</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/categories/create-category.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">GET /categories</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/categories/get-categories.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">PATCH /categories/:categoryId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/categories/edit-category.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">DELETE /categories/:categoryId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/categories/delete-category.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+
+                <!-- Products -->
+                <div class="card mt-4" id="products">
+                    <h5 class="card-header text-white bg-primary">Products</h5>
+                    <ul class="ms-4">
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">POST /products</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/products/create-product.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">GET /products</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/products/get-products.png" class="img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">PUT /products/:productId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/products/edit-product.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">PATCH /products/:productId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/products/edit-category-product.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">DELETE /products/:productId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/products/delete-product.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+
+                <!-- Transactions -->
+                <div class="card mt-4" id="transactions">
+                    <h5 class="card-header text-white bg-primary">Transactions</h5>
+                    <ul class="ms-4">
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">POST /transactions</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/transactions/create-transation.png" class="mt-2 img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">GET /transactions/user </h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/transactions/get-transaction-user.png" class="img-thumbnail" alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">GET /transactions/admin </h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/transactions/get-transaction-admin.png" class="mt-2 img-thumbnail"
+                                    alt="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-body">
+                                <h5 class="card-title">GET /transactions/:transactionsId</h5>
+                                <img src="/img/auth.png" class="img-thumbnail" alt="...">
+                                <img src="/img/transactions/get-transaction-detail.png" class="mt-2 img-thumbnail"
+                                    alt="...">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+
             </div>
         </div>
-    </nav>
 
-    <div class="mt-4 me-4 ms-4">
-        <div class="card">
-            <h5 class="card-header">Users</h5>
-            <ul>
-                <li>
-                    <div class="card-body">
-                        <h5 class="card-title">POST users/register</h5>
-                        <img src="/img/user.png" class="img-fluid" alt="...">
-                    </div>
-                </li>
-            </ul>
-        </div>
+
+
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
