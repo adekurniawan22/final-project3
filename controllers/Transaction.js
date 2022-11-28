@@ -35,13 +35,13 @@ class TransactionController {
                             },
                         })
                     } else {
-                        return res.status(500).json({ message: 'Your funds are lacking, please top up first ' })
+                        return res.status(400).json({ message: 'Your funds are lacking, please top up first ' })
                     }
                 } else {
-                    return res.status(500).json({ message: 'This item is out of stock' })
+                    return res.status(400).json({ message: 'This item is out of stock' })
                 }
             } else {
-                return res.status(500).json({ message: 'Product with this id not found' })
+                return res.status(404).json({ message: 'Product with this id not found' })
             }
         } catch (error) {
             return res.status(500).json({ error: error.message })

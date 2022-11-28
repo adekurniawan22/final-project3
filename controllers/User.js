@@ -58,10 +58,10 @@ class UserController {
                     })
                     return res.status(200).json({ token: token })
                 } else {
-                    return res.status(500).json({ message: 'Wrong password' })
+                    return res.status(400).json({ message: 'Wrong password' })
                 }
             } else {
-                return res.status(500).json({ message: 'Data not found' })
+                return res.status(404).json({ message: 'Data not found' })
             }
         } catch (error) {
             return res.status(500).json(error);
@@ -76,7 +76,7 @@ class UserController {
             const data = await User.findAll();
             for (var key in data) {
                 if (email == data[key].email) {
-                    return res.status(500).json({
+                    return res.status(400).json({
                         message: 'This email is already in use '
                     })
                 }
@@ -124,7 +124,7 @@ class UserController {
                 await User.update({ balance }, { where: { id: authentication.id } });
                 return res.status(200).json({ message: `Your balance has been successfully updated to Rp. ${balance}` });
             } else {
-                return res.status(500).json({ message: 'Wrong request body' });
+                return res.status(400).json({ message: 'Wrong request body' });
             }
         } catch (error) {
             const errObj = {};

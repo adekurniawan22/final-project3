@@ -16,7 +16,7 @@ async function authentication(req, res, next) {
             res.authentication = user;
             next();
         } else {
-            return res.status(500).json({ message: 'Wrong token' });
+            return res.status(400).json({ message: 'Wrong token' });
         }
     } catch (error) {
         return res.status(500).json({ message: error.message });

@@ -22,7 +22,7 @@ async function authorizationTransaction(req, res, next) {
                 return res.status(403).json({ message: 'Forbidden' })
             }
         } else {
-            return res.status(500).json({ message: 'Data not found' })
+            return res.status(404).json({ message: 'Data not found' })
         }
     } catch (error) {
         return res.status(500).json({ error: error.message })

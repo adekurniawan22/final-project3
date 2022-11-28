@@ -27,7 +27,7 @@ class ProductController {
                 })
                 return res.status(201).json({ Product: newProduct.dataValues })
             } else {
-                return res.status(500).json({ message: 'Categories id not found' })
+                return res.status(404).json({ message: 'Categories id not found' })
             }
 
         } catch (error) {
@@ -50,7 +50,7 @@ class ProductController {
                 if (product) {
                     return res.status(200).json({ product });
                 } else {
-                    return res.status(500).json({ message: 'This product id not found' })
+                    return res.status(404).json({ message: 'This product id not found' })
                 }
             }
         } catch (error) {
@@ -74,7 +74,7 @@ class ProductController {
                 if (product) {
                     return res.status(200).json({ product });
                 } else {
-                    return res.status(500).json({ message: 'This product id not found' })
+                    return res.status(404).json({ message: 'This product id not found' })
                 }
             }
         } catch (error) {
@@ -89,7 +89,7 @@ class ProductController {
             if (dataDelete) {
                 return res.status(200).json({ message: 'Product has been succesfully deleted' })
             } else {
-                return res.status(500).json({ message: 'This product id not found' })
+                return res.status(404).json({ message: 'This product id not found' })
             }
         } catch (error) {
             return res.status(500).json(error)
